@@ -31,3 +31,13 @@ for module in module_credits:
 print("Weekly timetable:")
 for day, modules in timetable.items():
     print(f"{day}:{', '.join(modules) if modules else 'No modules assigned'}")
+
+study_hours = {}
+
+for module, credit in module_credits.items():
+    hours = credit * 2  # for 1 credit module, 2 hours
+    study_hours[module] = hours
+
+print("Study hours per module (per week):")
+for module, hours in study_hours.items():
+    print(f"{module}:{hours} hours")
