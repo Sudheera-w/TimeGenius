@@ -41,3 +41,13 @@ for module, credit in module_credits.items():
 print("Study hours per module (per week):")
 for module, hours in study_hours.items():
     print(f"{module}:{hours} hours")
+
+
+daily_hours = {}
+
+for module, hours in study_hours.items():
+    daily_hours[module] = hours  # same as weekly (for now)
+
+print("\nDaily study hours:")
+for module, hours in daily_hours.items():
+    print(f"{module}: {hours} hours on assigned day")
