@@ -16,7 +16,7 @@ while True:
 
     module_credits[module_name] = credits
 
-print("Modules and credits---------->>>>>>>")
+print("\nModules and credits---------->>>>>>>")
 for module,credits in module_credits.items():
     print(f"{module}: {credits}")
 
@@ -28,9 +28,6 @@ for module in module_credits:
     timetable[days[day_index]].append(module)
     day_index = (day_index + 1) % len(days)
 
-print("Weekly timetable:")
-for day, modules in timetable.items():
-    print(f"{day}:{', '.join(modules) if modules else 'No modules assigned'}")
 
 study_hours = {}
 
@@ -38,7 +35,7 @@ for module, credit in module_credits.items():
     hours = credit * 2  # for 1 credit module, 2 hours
     study_hours[module] = hours
 
-print("Study hours per module (per week):")
+print("\nStudy hours per module (per week):")
 for module, hours in study_hours.items():
     print(f"{module}:{hours} hours")
 
@@ -51,3 +48,12 @@ for module, hours in study_hours.items():
 print("\nDaily study hours:")
 for module, hours in daily_hours.items():
     print(f"{module}: {hours} hours on assigned day")
+
+
+print("\nWeekly timetable:")
+for day, modules in timetable.items():
+    if modules:
+        for m in modules:
+            print(f"{day}: {m} ({daily_hours[m]} hours)")
+    else:
+        print(f"{day}: No modules assigned")
