@@ -57,3 +57,10 @@ for day, modules in timetable.items():
             print(f"{day}: {m} ({daily_hours[m]} hours)")
     else:
         print(f"{day}: No modules assigned")
+
+while True:
+    try:
+        max_daily_hours = int(input("\nHow many hours can you study per day? (Recommended: 3–4): "))
+        break
+    except ValueError:
+        print("Enter a valid number.")
