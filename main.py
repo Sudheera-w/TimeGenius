@@ -39,6 +39,14 @@ print("\nStudy hours per module (per week):")
 for module, hours in study_hours.items():
     print(f"{module}:{hours} hours")
 
+#Ask from user about daily study limit
+
+while True:
+    try:
+        max_daily_hours = int(input("\nHow many hours can you study per day? (Recommended: 3–4): "))
+        break
+    except ValueError:
+        print("Enter a valid number.")
 
 daily_hours = {}
 
@@ -57,10 +65,3 @@ for day, modules in timetable.items():
             print(f"{day}: {m} ({daily_hours[m]} hours)")
     else:
         print(f"{day}: No modules assigned")
-
-while True:
-    try:
-        max_daily_hours = int(input("\nHow many hours can you study per day? (Recommended: 3–4): "))
-        break
-    except ValueError:
-        print("Enter a valid number.")
