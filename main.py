@@ -57,4 +57,11 @@ for module, hours in study_hours.items():
             daily_load[day] += hours_to_assign
             remaining -= hours_to_assign
 
-
+print("\nWeekly Timetable:")
+for day in days:
+    print(f"\n{day}:")
+    if timetable[day]:
+        for module, hrs in timetable[day]:
+            print(f"  - {module}: {hrs} hours")
+    else:
+        print("   No study sessions")
