@@ -43,10 +43,18 @@ while True:
     except ValueError:
         print("Enter a valid number.")
 
-print("\nWeekly timetable:")
-for day, modules in timetable.items():
-    if modules:
-        for m in modules:
-            print(f"{day}: {m} ({daily_hours[m]} hours)")
-    else:
-        print(f"{day}: No modules assigned")
+for module, hours in study_hours.items():
+    remaining = hours   # total hours -> to place
+
+    for day in days:
+        if remaining <= 0:
+            break
+        
+        available = max_daily_hours - daily_load[day]
+        if available > 0:
+            hours_to_assign = min(available, remaining)
+            timetable[day].append((module, hours_to_assign))
+            daily_load[day] += hours_to_assign
+            remaining -= hours_to_assign
+
+
