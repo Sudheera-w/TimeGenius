@@ -21,12 +21,8 @@ for module,credits in module_credits.items():
     print(f"{module}: {credits}")
 
 days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-timetable = {day: [] for day in days}
-
-day_index=0
-for module in module_credits:
-    timetable[days[day_index]].append(module)
-    day_index = (day_index + 1) % len(days)
+timetable = {day: [] for day in days}  # Reset timetable
+daily_load = {day: 0 for day in days}  # To track total hours per day
 
 
 study_hours = {}
