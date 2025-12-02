@@ -24,7 +24,6 @@ days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 timetable = {day: [] for day in days}  # Reset timetable
 daily_load = {day: 0 for day in days}  # To track total hours per day
 
-
 study_hours = {}
 
 for module, credit in module_credits.items():
@@ -43,16 +42,6 @@ while True:
         break
     except ValueError:
         print("Enter a valid number.")
-
-daily_hours = {}
-
-for module, hours in study_hours.items():
-    daily_hours[module] = hours  # same as weekly (for now)
-
-print("\nDaily study hours:")
-for module, hours in daily_hours.items():
-    print(f"{module}: {hours} hours on assigned day")
-
 
 print("\nWeekly timetable:")
 for day, modules in timetable.items():
